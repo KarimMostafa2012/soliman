@@ -7,23 +7,6 @@ import { countdownTime } from "@/store/countdownTime";
 import * as Icon from "@phosphor-icons/react/dist/ssr";
 
 const ComingSoon = () => {
-  const [timeLeft, setTimeLeft] = useState({
-    days: 0,
-    hours: 0,
-    minutes: 0,
-    seconds: 0
-  });;
-
-  useEffect(() => {
-    // Initialize with current time on client only
-    setTimeLeft(countdownTime("2025-5-31"));
-    
-    const timer = setInterval(() => {
-      setTimeLeft(countdownTime("2025-5-31"));
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
 
   return (
     <>
@@ -42,45 +25,6 @@ const ComingSoon = () => {
                 <Image src="/images/logo.png" className="w-[120px] mb-2" alt="logo" width={120} height={132.84} />
               </div>
               <div className="text-display">Coming Soon</div>
-              <div className="countdown-time flex items-center gap-5 lg:mt-[60px] md:mt-10 mt-6">
-                <div className="item flex flex-col items-center">
-                  <div className="days time heading1">
-                    {timeLeft.days < 10 ? `0${timeLeft.days}` : timeLeft.days}
-                  </div>
-                  <div className="text-button-uppercase font-medium">Days</div>
-                </div>
-                <span className="heading4">:</span>
-                <div className="item flex flex-col items-center">
-                  <div className="hours time heading1">
-                    {timeLeft.hours < 10
-                      ? `0${timeLeft.hours}`
-                      : timeLeft.hours}
-                  </div>
-                  <div className="text-button-uppercase font-medium">Hours</div>
-                </div>
-                <span className="heading4">:</span>
-                <div className="item flex flex-col items-center">
-                  <div className="minutes time heading1">
-                    {timeLeft.minutes < 10
-                      ? `0${timeLeft.minutes}`
-                      : timeLeft.minutes}
-                  </div>
-                  <div className="text-button-uppercase font-medium">
-                    Minutes
-                  </div>
-                </div>
-                <span className="heading4">:</span>
-                <div className="item flex flex-col items-center">
-                  <div className="seconds time heading1">
-                    {timeLeft.seconds < 10
-                      ? `0${timeLeft.seconds}`
-                      : timeLeft.seconds}
-                  </div>
-                  <div className="text-button-uppercase font-medium">
-                    Seconds
-                  </div>
-                </div>
-              </div>
               <div className="list-link flex items-center gap-6 justify-center mt-6">
                 <Link
                   href={"https://www.facebook.com/memo1119111"}
